@@ -1,0 +1,19 @@
+# Docker compose file to startup temporary local database containers
+
+version: "3.7"
+
+services:
+  
+  postgres:
+    image: "postgres:alpine"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=solvent_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  
+  adminer:
+    image: "adminer:latest"
+    ports:
+      - 8080:8080
